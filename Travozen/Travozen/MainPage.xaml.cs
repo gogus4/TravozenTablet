@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Travozen.Model;
+using Travozen.View;
 using Travozen.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -30,6 +32,16 @@ namespace Travozen
         private void HamburgerRadioButton_Click(object sender, RoutedEventArgs e)
         {
             SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
+
+        private void ListCategories_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var category = e.ClickedItem as Category;
+
+            if(category != null)
+            {
+                this.Frame.Navigate(typeof(CategoryView), category);
+            }
         }
     }
 }

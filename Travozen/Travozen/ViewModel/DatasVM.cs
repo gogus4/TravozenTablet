@@ -32,12 +32,38 @@ namespace Travozen.ViewModel
         public void GetDatas()
         {
             Categories.Add(new Category() { Name = "Carrelage", Picture = "carrelage.jpg" });
-            Categories.Add(new Category() { Name = "Chambre", Picture = "chambre.jpg" });
-            Categories.Add(new Category() { Name = "Cuisine", Picture = "cuisine.jpg" });
+
+            var categoryChambre = new Category() { Name = "Chambre", Picture = "chambre.jpg" };
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre", PictureAfter = "after_chambre.jpg", PictureBefore = "before_chambre.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 1", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 2", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 3", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 4", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 5", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
+
+            Categories.Add(categoryChambre);
+
+            var categoryCuisine = new Category() { Name = "Cuisine", Picture = "cuisine.jpg" };
+            categoryCuisine.Constructions.Add(new Construction() { Name = "Rénovation cuisine", PictureAfter = "after_cuisine.jpg", PictureBefore = "before_cuisine.jpg" });
+            categoryCuisine.Constructions.Add(new Construction() { Name = "Rénovation cuisine 1", PictureAfter = "after_cuisine.jpg", PictureBefore = "before_cuisine.jpg" });
+            categoryCuisine.Constructions.Add(new Construction() { Name = "Rénovation cuisine 2", PictureAfter = "after_cuisine.jpg", PictureBefore = "before_cuisine.jpg" });
+            categoryCuisine.Constructions.Add(new Construction() { Name = "Rénovation cuisine 3", PictureAfter = "after_cuisine.jpg", PictureBefore = "before_cuisine.jpg" });
+
+            Categories.Add(categoryCuisine);
+
             Categories.Add(new Category() { Name = "Escalier", Picture = "escalier.jpg" });
             Categories.Add(new Category() { Name = "Fenêtre", Picture = "fenetre.jpg" });
             Categories.Add(new Category() { Name = "Jardin", Picture = "jardin.jpg" });
-            Categories.Add(new Category() { Name = "Salle de bain", Picture = "salle_de_bain.jpg" });
+
+            var categorySDB = new Category() { Name = "Salle de bain", Picture = "salle_de_bain.jpg" };
+            categorySDB.Constructions.Add(new Construction() { Name = "Rénovation salle de bain", PictureAfter = "after_sdb.jpg", PictureBefore = "before_sdb.jpg" });
+            categorySDB.Constructions.Add(new Construction() { Name = "Rénovation salle de bain 1", PictureAfter = "after_sdb.jpg", PictureBefore = "before_sdb.jpg" });
+            categorySDB.Constructions.Add(new Construction() { Name = "Rénovation salle de bain 2", PictureAfter = "after_sdb.jpg", PictureBefore = "before_sdb.jpg" });
+            categorySDB.Constructions.Add(new Construction() { Name = "Rénovation salle de bain 3", PictureAfter = "after_sdb.jpg", PictureBefore = "before_sdb.jpg" });
+            categorySDB.Constructions.Add(new Construction() { Name = "Rénovation salle de bain 4", PictureAfter = "after_sdb.jpg", PictureBefore = "before_sdb.jpg" });
+
+            Categories.Add(categorySDB);
+
             Categories.Add(new Category() { Name = "Salon", Picture = "salon.jpg" });
         }
     }
