@@ -99,19 +99,32 @@
             SelectionMode="Single"/>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="1" Margin="40">
-            
-            <Image x:Name="ImgAfter" Stretch="Fill"></Image>
-            <Image x:Name="ImgBefore" Stretch="Fill"
-                       ManipulationMode="TranslateX"
-                       ManipulationStarted="Img_ManipulationStarted"
-                       ManipulationDelta="Img_ManipulationDelta"
-                       ManipulationCompleted="Img_ManipulationCompleted">
-                <Image.RenderTransform>
+        <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="60">
+
+            <Grid x:Name="Slider" ManipulationMode="All"
+                       ManipulationStarted="Slider_ManipulationStarted"
+                       ManipulationDelta="Slider_ManipulationDelta"
+                        Background="Transparent"
+                        Width="60"
+                        ManipulationCompleted="Slider_ManipulationCompleted" Canvas.ZIndex="20">
+                <Grid>
+                    <Ellipse 
+                Fill="Pink"
+                Height="60"
+                Width="60"      
+                StrokeThickness="1"></Ellipse>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Run Text="&#59563;"></Run>
+                    </TextBlock>
+
+                </Grid>
+                <Grid.RenderTransform>
                     <CompositeTransform x:Name="Transform" />
-                </Image.RenderTransform>
-            </Image>
-            
+                </Grid.RenderTransform>
+            </Grid>
+
+            <Image x:Name="ImgBefore" SizeChanged="ImgBefore_SizeChanged" Stretch="Fill" Canvas.ZIndex="1" VerticalAlignment="Center" ManipulationMode="All" Source="ms-appx:///Assets/img-original.jpg" />
+            <Image x:Name="ImgAfter" Canvas.ZIndex="0" Stretch="Fill" VerticalAlignment="Center" ManipulationMode="All" Source="ms-appx:///Assets/img-modified.jpg" />
         </Grid>
     </Grid>
 </Page>

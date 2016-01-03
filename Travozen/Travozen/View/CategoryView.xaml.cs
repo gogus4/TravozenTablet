@@ -39,8 +39,8 @@ namespace Travozen.View
                     ListConstructions.ItemsSource = category.Constructions;
                     ListConstructions.SelectedIndex = 0;
 
-                    ImgAfter.Source = category.Constructions[0].ImageDisplayAfter;
-                    ImgBefore.Source = category.Constructions[0].ImageDisplayBefore;
+                    //ImgAfter.Source = category.Constructions[0].ImageDisplayAfter;
+                    //ImgBefore.Source = category.Constructions[0].ImageDisplayBefore;
                 }
 
                 TitleConstruction.Text = "Travozen - " + category.Name;
@@ -52,42 +52,73 @@ namespace Travozen.View
             this.Frame.GoBack();
         }
 
-        private void Img_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        private void Slider_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
-            this.ImgBefore.Opacity = 0.4;
+
         }
 
-        private void Img_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        private void Slider_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            var ttv = ImgBefore.TransformToVisual(Window.Current.Content);
-            Point screenCoords = ttv.TransformPoint(new Point(0, 0));
+            try
+            {
+                var ttv = Slider.TransformToVisual(Window.Current.Content);
+                Point screenCoords = ttv.TransformPoint(new Point(0, 0));
+                if (((this.Transform.TranslateX + e.Delta.Translation.X) >= 0) && ((this.Transform.TranslateX + e.Delta.Translation.X) <= 880))
+                {
+                    this.Transform.TranslateX += e.Delta.Translation.X;
 
-            var ttv1 = ImgAfter.TransformToVisual(Window.Current.Content);
-            CoordXImageAfter = ttv1.TransformPoint(new Point(0, 0));
+                    GeneralTransform gt = ImgBefore.TransformToVisual(null);
+                    Point pt = gt.TransformPoint(new Point(0, 0));
+                    var _rect = new RectangleGeometry();
 
-            if (this.Transform.TranslateX >= 500)
-            {
-                this.ImgBefore.Opacity = 0.2;
-            }
-            else if (this.Transform.TranslateX <= 500)
-            {
-                this.ImgBefore.Opacity = 0.8;
-            }
+                    var point = new Point(screenCoords.X - 300, 0);
+                    _rect.Rect = new Rect(point, new Size(ImgBefore.ActualWidth - screenCoords.X + 300, ImgBefore.ActualHeight));
 
-            if (screenCoords.X >= CoordXImageAfter.X)
-            {
-                this.Transform.TranslateX += e.Delta.Translation.X;
+                    ImgBefore.Clip = _rect;
+                    //Slider.Width = photoBefore.ActualWidth - screenCoords.X;
+
+                    //Slider.Margin = new Thickness(-this.Transform.TranslateX, 0, 0, 0);
+                    //Slider.X1 = -photoAfter.ActualWidth;
+                    //Slider.X2 = 0;
+
+                    //Slider.Y1 = -photoAfter.ActualHeight;
+                    //Slider.Y2 = 0;
+                }
             }
-            else if (screenCoords.X < CoordXImageAfter.X)
+            catch (Exception ex)
             {
-                this.Transform.TranslateX = 0;
+
             }
         }
 
-        private void Img_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        private void Slider_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            // reset the Opacity
-            //this.ImgBefore.Opacity = 0.8;
+
+        }
+
+        private void ImgBefore_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            initImage();
+        }
+
+        private void initImage()
+        {
+            double i = 100;
+            GeneralTransform gt = ImgBefore.TransformToVisual(null);
+            Point pt = gt.TransformPoint(new Point(0, 0));
+            var _rect = new RectangleGeometry();
+
+            if (i > ImgBefore.ActualWidth)
+            {
+                i = ImgBefore.ActualWidth - 100;
+            }
+
+            var point = new Point(i, 0);
+            _rect.Rect = new Rect(point, new Size(ImgBefore.ActualWidth - i, ImgBefore.ActualHeight));
+            ImgBefore.Clip = _rect;
+            Slider.HorizontalAlignment = HorizontalAlignment.Left;
+
+            Slider.Margin = new Thickness((ImgAfter.ActualWidth - (ImgBefore.ActualWidth - i)) - 30, 0, 0, 0);
         }
     }
 }
