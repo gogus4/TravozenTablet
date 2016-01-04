@@ -86,7 +86,7 @@
             </Grid.ColumnDefinitions>
 
             <RadioButton x:Name="GoBack" Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#xE72B;" Tapped="GoBack_Tapped"/>
-            <TextBlock x:Name="TitleConstruction" Grid.Column="1" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF153B63" FontFamily="Segoe UI Light" FontSize="30" Text="Travozen"/>
+            <TextBlock x:Name="TitleConstruction" Grid.Column="1" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF153B63" FontFamily="Segoe UI Light" FontSize="30" Text="Vision architecte"/>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="0">
@@ -94,37 +94,43 @@
             x:Name="ListConstructions"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
+                SelectionChanged="ListConstructions_SelectionChanged"
             ItemTemplate="{StaticResource ListConstructionTemplate}"
             ItemContainerStyle="{StaticResource ListViewItemStyleLandscape}"
             SelectionMode="Single"/>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="60">
-
-            <Grid x:Name="Slider" ManipulationMode="All"
+        <FlipView x:Name="ConstructionsFlipView" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="60">
+            <FlipView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </FlipView.ItemsPanel>
+            <!--<Grid >
+                <Grid x:Name="Slider" ManipulationMode="All"
                        ManipulationStarted="Slider_ManipulationStarted"
                        ManipulationDelta="Slider_ManipulationDelta"
                         Background="Transparent"
                         Width="60"
                         ManipulationCompleted="Slider_ManipulationCompleted" Canvas.ZIndex="20">
-                <Grid>
-                    <Ellipse 
-                Fill="Pink"
+                    <Grid>
+                        <Ellipse 
+                Fill="#FF153B63"
                 Height="60"
-                Width="60"      
+                Width="60"       
                 StrokeThickness="1"></Ellipse>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Run Text="&#59563;"></Run>
-                    </TextBlock>
-
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Foreground="White" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Run Text="&#59563;"></Run>
+                        </TextBlock>
+                    </Grid>
+                    <Grid.RenderTransform>
+                        <CompositeTransform x:Name="Transform" />
+                    </Grid.RenderTransform>
                 </Grid>
-                <Grid.RenderTransform>
-                    <CompositeTransform x:Name="Transform" />
-                </Grid.RenderTransform>
-            </Grid>
 
-            <Image x:Name="ImgBefore" SizeChanged="ImgBefore_SizeChanged" Stretch="Fill" Canvas.ZIndex="1" VerticalAlignment="Center" ManipulationMode="All" Source="ms-appx:///Assets/img-original.jpg" />
-            <Image x:Name="ImgAfter" Canvas.ZIndex="0" Stretch="Fill" VerticalAlignment="Center" ManipulationMode="All" Source="ms-appx:///Assets/img-modified.jpg" />
-        </Grid>
+                <Image x:Name="ImgBefore" SizeChanged="ImgBefore_SizeChanged" Stretch="Fill" Canvas.ZIndex="1" VerticalAlignment="Center" ManipulationMode="All" />
+                <Image x:Name="ImgAfter" Canvas.ZIndex="0" Stretch="Fill" VerticalAlignment="Center" ManipulationMode="All" />
+            </Grid>-->
+        </FlipView>
     </Grid>
 </Page>

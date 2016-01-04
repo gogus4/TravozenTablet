@@ -108,6 +108,9 @@
     <Compile Include="View\CategoryView.xaml.cs">
       <DependentUpon>CategoryView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ConstructionView.xaml.cs">
+      <DependentUpon>ConstructionView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -116,6 +119,8 @@
     <None Include="Travozen_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\after_city.jpg" />
+    <Content Include="Assets\before_city.jpg" />
     <Content Include="Assets\img-modified.jpg" />
     <Content Include="Assets\img-original.jpg" />
     <Content Include="Properties\Default.rd.xml" />
@@ -137,6 +142,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConstructionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

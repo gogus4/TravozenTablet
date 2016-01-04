@@ -34,12 +34,12 @@ namespace Travozen.ViewModel
             Categories.Add(new Category() { Name = "Carrelage", Picture = "carrelage.jpg" });
 
             var categoryChambre = new Category() { Name = "Chambre", Picture = "chambre.jpg" };
-            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre", PictureAfter = "after_chambre.jpg", PictureBefore = "before_chambre.jpg" });
-            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 1", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
-            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 2", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
-            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 3", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
-            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 4", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
-            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 5", PictureAfter = "after_chambre1.jpg", PictureBefore = "before_chambre1.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre", PictureAfter = "img-modified.jpg", PictureBefore = "img-original.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 1", PictureAfter = "after_city.jpg", PictureBefore = "before_city.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 2", PictureAfter = "img-modified.jpg", PictureBefore = "img-original.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 3", PictureAfter = "after_city.jpg", PictureBefore = "before_city.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 4", PictureAfter = "img-modified.jpg", PictureBefore = "img-original.jpg" });
+            categoryChambre.Constructions.Add(new Construction() { Name = "Rénovation chambre 5", PictureAfter = "after_city.jpg", PictureBefore = "before_city.jpg" });
 
             Categories.Add(categoryChambre);
 

@@ -9,16 +9,12 @@
 
     <SplitView x:Name="SplitView" DisplayMode="CompactOverlay" Foreground="#FF153B63" BorderBrush="#FF153B63" IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="150">
         <SplitView.Pane>
-            <StackPanel x:Name="SplitViewPanePanel">
+            <StackPanel x:Name="SplitViewPanePanel" Background="White">
                 <RadioButton x:Name="HamburgerRadioButton" Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Click="HamburgerRadioButton_Click" Tag=""/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 1"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 2"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 3"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 4"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 5"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 6"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 7"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="" Content="Categorie 8"/>
+                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59633;" Content="Catégorie"/>
+                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59331;" Content="Dossier"/>
+                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59259;" Content="Client"/>
+                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59180;" Content="Rafraichir"/>
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
@@ -28,7 +24,7 @@
                     <RowDefinition Height="0.95*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe UI Light" FontSize="30" Text="Travozen"/>
+                <TextBlock Grid.Row="0" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe UI Light" FontSize="30" Text="Vision architecte"/>
 
                 <ListView x:Name="ListCategories" ItemClick="ListCategories_ItemClick" Foreground="#FF153B63" Grid.Row="1" IsHoldingEnabled="False" IsRightTapEnabled="False" HorizontalAlignment="Center" SelectionMode="None" IsItemClickEnabled="True" ShowsScrollingPlaceholders="False">
                     <ListView.ItemsPanel>
