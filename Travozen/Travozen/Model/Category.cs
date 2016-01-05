@@ -10,11 +10,10 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Travozen.Model
 {
-    public class Category
+    public class Category : ItemListView
     {
         public string Name { get; set; }
         public string Picture { get; set; }
-        public ObservableCollection<Construction> Constructions { get; set; }
 
         public ImageSource ImageDisplay
         {
@@ -25,17 +24,6 @@ namespace Travozen.Model
 
                 return new BitmapImage(new Uri(ApplicationData.Current.LocalFolder.Path + "\\Categories\\" + this.Picture));
             }
-        }
-
-        public Category()
-        {
-            Constructions = new ObservableCollection<Construction>();
-
-            /*Constructions.Add(new Construction() { PictureAfter = "after.jpg", PictureBefore = "before.jpg", Name = "Titre du chantier" });
-            Constructions.Add(new Construction() { PictureAfter = "after.jpg", PictureBefore = "before.jpg", Name = "Titre du chantier" });
-            Constructions.Add(new Construction() { PictureAfter = "after.jpg", PictureBefore = "before.jpg", Name = "Titre du chantier" });
-            Constructions.Add(new Construction() { PictureAfter = "after.jpg", PictureBefore = "before.jpg", Name = "Titre du chantier" });
-            Constructions.Add(new Construction() { PictureAfter = "after.jpg", PictureBefore = "before.jpg", Name = "Titre du chantier" });*/
         }
     }
 }

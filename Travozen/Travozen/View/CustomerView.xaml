@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Travozen.View.CategoryView"
+    x:Class="Travozen.View.CustomerView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Travozen.View"
@@ -106,31 +106,6 @@
                     <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </FlipView.ItemsPanel>
-            <!--<Grid >
-                <Grid x:Name="Slider" ManipulationMode="All"
-                       ManipulationStarted="Slider_ManipulationStarted"
-                       ManipulationDelta="Slider_ManipulationDelta"
-                        Background="Transparent"
-                        Width="60"
-                        ManipulationCompleted="Slider_ManipulationCompleted" Canvas.ZIndex="20">
-                    <Grid>
-                        <Ellipse 
-                Fill="#FF153B63"
-                Height="60"
-                Width="60"       
-                StrokeThickness="1"></Ellipse>
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Foreground="White" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Run Text="&#59563;"></Run>
-                        </TextBlock>
-                    </Grid>
-                    <Grid.RenderTransform>
-                        <CompositeTransform x:Name="Transform" />
-                    </Grid.RenderTransform>
-                </Grid>
-
-                <Image x:Name="ImgBefore" SizeChanged="ImgBefore_SizeChanged" Stretch="Fill" Canvas.ZIndex="1" VerticalAlignment="Center" ManipulationMode="All" />
-                <Image x:Name="ImgAfter" Canvas.ZIndex="0" Stretch="Fill" VerticalAlignment="Center" ManipulationMode="All" />
-            </Grid>-->
         </FlipView>
     </Grid>
 </Page>

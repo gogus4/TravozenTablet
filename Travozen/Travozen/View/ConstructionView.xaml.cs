@@ -45,7 +45,7 @@ namespace Travozen.View
             {
                 var ttv = Slider.TransformToVisual(Window.Current.Content);
                 Point screenCoords = ttv.TransformPoint(new Point(0, 0));
-                if (((this.Transform.TranslateX + e.Delta.Translation.X) >= 0) && ((this.Transform.TranslateX + e.Delta.Translation.X) <= 880))
+                if (((this.Transform.TranslateX + e.Delta.Translation.X) >= 0) && ((this.Transform.TranslateX + e.Delta.Translation.X) <= 950))
                 {
                     this.Transform.TranslateX += e.Delta.Translation.X;
 
@@ -57,14 +57,6 @@ namespace Travozen.View
                     _rect.Rect = new Rect(point, new Size(ImgBefore.ActualWidth - screenCoords.X + 300, ImgBefore.ActualHeight));
 
                     ImgBefore.Clip = _rect;
-                    //Slider.Width = photoBefore.ActualWidth - screenCoords.X;
-
-                    //Slider.Margin = new Thickness(-this.Transform.TranslateX, 0, 0, 0);
-                    //Slider.X1 = -photoAfter.ActualWidth;
-                    //Slider.X2 = 0;
-
-                    //Slider.Y1 = -photoAfter.ActualHeight;
-                    //Slider.Y2 = 0;
                 }
             }
             catch (Exception ex)
@@ -85,22 +77,17 @@ namespace Travozen.View
 
         private void initImage()
         {
-            double i = 100;
+            double i = 30;
             GeneralTransform gt = ImgBefore.TransformToVisual(null);
             Point pt = gt.TransformPoint(new Point(0, 0));
             var _rect = new RectangleGeometry();
-
-            if (i > ImgBefore.ActualWidth)
-            {
-                i = ImgBefore.ActualWidth - 100;
-            }
 
             var point = new Point(i, 0);
             _rect.Rect = new Rect(point, new Size(ImgBefore.ActualWidth - i, ImgBefore.ActualHeight));
             ImgBefore.Clip = _rect;
             Slider.HorizontalAlignment = HorizontalAlignment.Left;
 
-            Slider.Margin = new Thickness((ImgAfter.ActualWidth - (ImgBefore.ActualWidth - i)) - 30, 0, 0, 0);
+            Slider.Margin = new Thickness((ImgAfter.ActualWidth - (ImgBefore.ActualWidth - i)) - 30, 0, 0, 0); // 30
         }
     }
 }

@@ -11,8 +11,8 @@
         <SplitView.Pane>
             <StackPanel x:Name="SplitViewPanePanel" Background="White">
                 <RadioButton x:Name="HamburgerRadioButton" Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Click="HamburgerRadioButton_Click" Tag=""/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59633;" Content="Catégorie"/>
-                <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59331;" Content="Dossier"/>
+                <RadioButton x:Name="DisplayCategories" Click="DisplayCategories_Click" Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59633;" Content="Catégorie"/>
+                <RadioButton x:Name="DisplayFolder" Click="DisplayFolder_Click" Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59331;" Content="Dossier"/>
                 <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59259;" Content="Client"/>
                 <RadioButton Style="{StaticResource NavRadioButtonStyle}" Foreground="#FF153B63" Tag="&#59180;" Content="Rafraichir"/>
             </StackPanel>
@@ -26,34 +26,7 @@
 
                 <TextBlock Grid.Row="0" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe UI Light" FontSize="30" Text="Vision architecte"/>
 
-                <ListView x:Name="ListCategories" ItemClick="ListCategories_ItemClick" Foreground="#FF153B63" Grid.Row="1" IsHoldingEnabled="False" IsRightTapEnabled="False" HorizontalAlignment="Center" SelectionMode="None" IsItemClickEnabled="True" ShowsScrollingPlaceholders="False">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapGrid Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Border CornerRadius="0" BorderThickness="0" Background="#FF153B63" Margin="0,20,0,0">
-                                    <Grid Margin="1" HorizontalAlignment="Center"  Width="400" Height="200" VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="150" />
-                                            <RowDefinition Height="50" />
-                                        </Grid.RowDefinitions>
-
-                                        <Border Grid.RowSpan="2" CornerRadius="10" BorderThickness="0">
-                                            <Image  Stretch="UniformToFill" Source="{Binding ImageDisplay}" />
-                                        </Border>
-
-                                        <Border Grid.Row="1" Background="#FF153B63" Opacity="0.8" VerticalAlignment="Bottom" Height="65" />
-                                        <TextBlock Grid.Row="1" Text="{Binding Name}" Foreground="White" FontSize="20" FontWeight="Normal" TextWrapping="WrapWholeWords" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" />
-                                    </Grid>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <FlipView x:Name="ListFlipView" Grid.Row="1"/>
             </Grid>
         </SplitView.Content>
     </SplitView>

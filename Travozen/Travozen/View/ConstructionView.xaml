@@ -29,8 +29,8 @@
             </Grid.RenderTransform>
         </Grid>
 
-        <Image x:Name="ImgBefore" SizeChanged="ImgBefore_SizeChanged" Stretch="Fill" Canvas.ZIndex="1" VerticalAlignment="Center" ManipulationMode="All" />
-        <Image x:Name="ImgAfter" Canvas.ZIndex="0" Stretch="Fill" VerticalAlignment="Center" ManipulationMode="All" />
+        <Image x:Name="ImgBefore" SizeChanged="ImgBefore_SizeChanged" Stretch="Fill" Canvas.ZIndex="1" VerticalAlignment="Center" />
+        <Image x:Name="ImgAfter" Canvas.ZIndex="0" Stretch="Fill" VerticalAlignment="Center" />
         <!--  Source="ms-appx:///Assets/img-modified.jpg" -->
     </Grid>
 </Page>

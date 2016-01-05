@@ -26,7 +26,13 @@ namespace Travozen
         public MainPage()
         {
             this.InitializeComponent();
-            ListCategories.ItemsSource = DatasVM.Instance.Categories;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ListFlipView.Items.Add(new ListCategoriesView());
+            ListFlipView.Items.Add(new ListCustomersView());
+
         }
 
         private void HamburgerRadioButton_Click(object sender, RoutedEventArgs e)
@@ -34,14 +40,14 @@ namespace Travozen
             SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
         }
 
-        private void ListCategories_ItemClick(object sender, ItemClickEventArgs e)
+        private void DisplayCategories_Click(object sender, RoutedEventArgs e)
         {
-            var category = e.ClickedItem as Category;
+            ListFlipView.SelectedIndex = 0;
+        }
 
-            if(category != null)
-            {
-                this.Frame.Navigate(typeof(CategoryView), category);
-            }
+        private void DisplayFolder_Click(object sender, RoutedEventArgs e)
+        {
+            ListFlipView.SelectedIndex = 1;
         }
     }
 }

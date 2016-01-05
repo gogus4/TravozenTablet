@@ -19,25 +19,25 @@ namespace Travozen.View
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class CategoryView : Page
+    public sealed partial class CustomerView : Page
     {
-        public CategoryView()
+        public CustomerView()
         {
             this.InitializeComponent();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var category = e.Parameter as Category;
+            var customer = e.Parameter as Customer;
 
-            if (category != null)
+            if (customer != null)
             {
-                if (category.Constructions.Count > 0)
+                if (customer.Constructions.Count > 0)
                 {
-                    ListConstructions.ItemsSource = category.Constructions;
+                    ListConstructions.ItemsSource = customer.Constructions;
                     ListConstructions.SelectedIndex = 0;
 
-                    foreach (var construction in category.Constructions)
+                    foreach (var construction in customer.Constructions)
                     {
                         ConstructionsFlipView.Items.Add(new ConstructionView(construction));
                     }
@@ -45,7 +45,7 @@ namespace Travozen.View
                     ConstructionsFlipView.SelectedIndex = 0;
                 }
 
-                TitleConstruction.Text = "Vision architecte - " + category.Name;
+                TitleConstruction.Text = "Vision architecte - Dossier n°" + customer.CustomerNumber;
             }
         }
 
@@ -56,7 +56,7 @@ namespace Travozen.View
 
         private void ListConstructions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(ConstructionsFlipView.SelectedIndex != -1)
+            if (ConstructionsFlipView.SelectedIndex != -1)
             {
                 ConstructionsFlipView.SelectedIndex = ListConstructions.SelectedIndex;
             }
