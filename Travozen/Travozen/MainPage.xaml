@@ -24,6 +24,7 @@
                     <RowDefinition Height="0.95*"/>
                 </Grid.RowDefinitions>
 
+                <SearchBox Grid.Row="0" BorderThickness="1" Margin="2" HorizontalAlignment="Right" Width="300"></SearchBox>
                 <TextBlock Grid.Row="0" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe UI Light" FontSize="30" Text="Vision architecte"/>
 
                 <FlipView x:Name="ListFlipView" Grid.Row="1"/>
